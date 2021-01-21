@@ -7,7 +7,11 @@ export default function manageUsers(state = {
       return {
         ...state,
         users: [...state.users, action.user]
-      }
+      };
+      case 'GET_COUNT_OF_USERS':
+      return Object.assign({}, state, {
+        users: state.users.concat(state.users.length + 1)
+      });
 
     default:
       return state;
